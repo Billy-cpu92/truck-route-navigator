@@ -4,42 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Truck Route Navigator</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        body { font-family: Arial, sans-serif; }
+        #map { height: 400px; width: 100%; }
+        form { margin: 20px 0; }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>Truck Route Navigator</h1>
-    </header>
-    <main>
-        <section id="map">
-            <h2>Map Interface</h2>
-            <div id="map-container"></div>
-        </section>
-        <section id="route-input">
-            <h2>Input Route</h2>
-            <label for="start-location">Start Location:</label>
-            <input type="text" id="start-location" name="start-location">
-            <label for="end-location">End Location:</label>
-            <input type="text" id="end-location" name="end-location">
-            <button id="calculate-route">Calculate Route</button>
-        </section>
-        <section id="vehicle-dimensions">
-            <h2>Vehicle Dimensions</h2>
-            <label for="vehicle-length">Length (ft):</label>
-            <input type="number" id="vehicle-length" name="vehicle-length">
-            <label for="vehicle-width">Width (ft):</label>
-            <input type="number" id="vehicle-width" name="vehicle-width">
-            <label for="vehicle-height">Height (ft):</label>
-            <input type="number" id="vehicle-height" name="vehicle-height">
-        </section>
-        <section id="saved-routes">
-            <h2>Saved Routes</h2>
-            <ul id="routes-list"></ul>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2026 Truck Route Navigator</p>
-    </footer>
-    <script src="script.js"></script>
+    <h1>Truck Route Navigator</h1>
+    <div id="map"></div>
+    <form id="routeForm">
+        <label for="start">Start Location:</label>
+        <input type="text" id="start" required>
+        <label for="end">Destination:</label>
+        <input type="text" id="end" required>
+        <label for="dimensions">Vehicle Dimensions (Width x Height):</label>
+        <input type="text" id="dimensions" placeholder="e.g. 2.5m x 4.0m" required>
+        <button type="submit">Calculate Route</button>
+    </form>
+    <section id="savedRoutes">
+        <h2>Saved Routes</h2>
+        <ul id="routeList"></ul>
+    </section>
+    <script>
+        // Initialize map and route navigation functionality here
+
+        document.getElementById('routeForm').onsubmit = function(e) {
+            e.preventDefault();
+            const start = document.getElementById('start').value;
+            const end = document.getElementById('end').value;
+            const dimensions = document.getElementById('dimensions').value;
+            // Add route calculation logic here
+            // Example: calculateRoute(start, end, dimensions);
+            // Add route to saved routes
+            const li = document.createElement('li');
+            li.textContent = `Route from ${start} to ${end} (Dimensions: ${dimensions})`;
+            document.getElementById('routeList').appendChild(li);
+        };
+    </script>
 </body>
 </html>
