@@ -1,0 +1,1 @@
+{\n  "name": "truck-route-navigator",\n  "version": "1.0.0",\n  "description": "For truck drivers to find customizable routes",\n  "main": "index.html",\n  "scripts": {\n    "start": "live-server .",\n    "test": "echo 'No tests specified' && exit 0"\n  }\n}
